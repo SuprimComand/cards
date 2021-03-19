@@ -5,11 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --write ./components/*.tsx && prettier --write ./hooks/*.ts && prettier --write ./pages/*.tsx"
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
     "next": "10.0.9",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
-  }
+    "react-dom": "17.0.1",
+    "react-drag-drawer": "^3.3.4",
+    "react-loading": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "@types/react": "^17.0.3",
+    "typescript": "^4.2.3"
+  },
+  "proxy": "http://localhost:3000/"
 }

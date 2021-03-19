@@ -1,0 +1,326 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+.cart-size {
+  width: 20px;
+  height: 20px;
+  color: white;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.header {
+  padding: 10px;
+  box-shadow: 0px 6px 10px 2px rgba(0,0,0,0.2);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.page {
+  padding-top: 60px;
+}
+
+.modal {
+  padding: 20px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  min-width: 400px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 5px;
+}
+
+.mt-2 {
+  margin-top: 10px;
+}
+
+.mt-3 {
+  margin-top: 15px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: 5px;
+}
+
+.mb-2 {
+  margin-bottom: 10px;
+}
+
+.mb-3 {
+  margin-bottom: 15px;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
+.mr-1 {
+  margin-right: 5px;
+}
+
+.mr-2 {
+  margin-right: 10px;
+}
+
+.mr-3 {
+  margin-right: 15px;
+}
+
+.ml-0 {
+  margin-left: 0;
+}
+
+.ml-1 {
+  margin-left: 5px;
+}
+
+.ml-2 {
+  margin-left: 10px;
+}
+
+.ml-3 {
+  margin-left: 15px;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.product {
+  &-image {
+    min-width: 200px;
+  }
+
+  &-title {
+    font-size: 25px;
+  }
+}
+
+.flex {
+  flex: 1;
+}
+
+.button {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: .4s;
+  display: inline-block;
+
+  &.transparent {
+    background-color: transparent;
+    outline-color: transparent;
+  }
+
+  &.success {
+    outline-color: #1eff00;
+    background-color: #1eff00;
+    color: #ffffff;
+
+    &:hover {
+      outline-color: #22da0a;
+      background-color: #22da0a;
+    }
+
+    &:active {
+      outline-color: #1cb308;
+      background-color: #1cb308;
+    }
+  }
+
+  &.primary {
+    outline-color: #0095ff;
+    background-color: #0095ff;
+    color: #ffffff;
+
+    &:hover {
+      outline-color: #0782da;
+      background-color: #0782da;
+    }
+
+    &:active {
+      outline-color: #0970b9;
+      background-color: #0970b9;
+    }
+  }
+  
+  &.danger {
+    outline-color: #fd4a33;
+    background-color: #fd4a33;
+    color: #ffffff;
+
+    &:hover {
+      outline-color: #e7250c;
+      background-color: #e7250c;
+    }
+
+    &:active {
+      outline-color: #ce2009;
+      background-color: #ce2009;
+    }
+  }
+}
+
+.form-field {
+  label {
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  input, textarea {
+    display: block;
+    padding: 6px;
+    width: 100%;
+
+    outline-color: #0095ff;
+  }
+}
+
+.card {
+  border-radius: 6px;
+  padding: 10px;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 300px;
+  background-color: white;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  &-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  &-title {
+    color: #02497c;
+    transition: .3s;
+
+    &:hover {
+      color: #0782da;
+    }
+  }
+
+  &-label {
+    color: rgb(107, 107, 107);
+  }
+
+  &-value {
+    color: rgb(49, 49, 49);
+  }
+
+  &-image {
+    width: 100%;
+  }
+}
+
+.valute-select {
+  min-width: 100px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+
+@media screen and (max-width: 760px) {
+  .product {
+    display: block;
+
+    &-column--left {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-column--right {
+      margin-left: 0;
+      padding-top: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .product {
+    &-column--left {
+      .product-image, div {
+        min-width: 100% !important;
+        min-height: 250px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .product {
+    &-column--left {
+      .product-image, div {
+        min-height: 180px;
+      }
+    }
+  }
+}
