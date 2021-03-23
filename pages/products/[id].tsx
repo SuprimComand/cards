@@ -9,7 +9,6 @@ import { useValutePrice } from '../../hooks/useValutePrice';
 export default function Product() {
   const router = useRouter();
   const { data: product, loading } = useQueryProduct(Number(router.query.id));
-  const [showDefaultImage, setShowDefaultImage] = useState(false);
   const { data: priceValute, refetch } = useValutePrice(product?.price);
 
   const handleChangeValute = useCallback(() => {
@@ -21,10 +20,6 @@ export default function Product() {
       refetch(product.price);
     }
   }, [product]);
-
-  const handleError = useCallback(() => {
-      setShowDefaultImage(true);
-  }, []);
 
   const handleGoBack = useCallback(() => {
     router.back();
@@ -47,12 +42,14 @@ export default function Product() {
       )
     }
 
+    const myLoader = ({ src }) => {
+      return src;
+    }
+
     return (
       <div className="d-flex product justify-content-between mr-3 ml-3 mt-3">
         <div className="product-column--left">
-          {!showDefaultImage ? <img onError={handleError} src={product.image} className="product-image" /> : (
-            <Image width={250} height={250} className="product-image" src={'/assets/default-picture.png'} />
-          )}
+        <Image width={250} height={250} className="product-image" loader={myLoader} src={product.image.replace(/.+\i\m\g/, 'https://fakestoreapi.herokuapp.com/img')} />
         </div>
         <div className="ml-3 product-column--right flex">
           <h1 className="mt-0 mb-2 product-title">{product.title}</h1>
@@ -68,7 +65,7 @@ export default function Product() {
         </div>
       </div>
     );
-  }, [product, loading, showDefaultImage, priceValute]);
+  }, [product, loading, priceValute]);
 
   return (
     <div className="container page">

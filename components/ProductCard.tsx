@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ProductType } from '../pages/api/product';
@@ -23,16 +23,11 @@ const ProductCard: FC<ProductProps> = ({
   update,
 }) => {
   const { title, id, image, category, price, description } = product;
-  const [showDefaultImage, setShowDefaultImage] = useState(false);
   const { data: priceValute, refetch } = useValutePrice(price);
 
   useEffect(() => {
     refetch();
   }, [update]);
-
-  const handleError = useCallback(() => {
-    setShowDefaultImage(true);
-  }, []);
 
   const handleClick = useCallback(() => {
     if (onSelect && !selected) {
@@ -43,16 +38,16 @@ const ProductCard: FC<ProductProps> = ({
     }
   }, [onSelect, product]);
 
+  const myLoader = ({ src }) => {
+    return src;
+  }
+
   return (
     <div className={className}>
       <div className="card">
         <Link href={`/products/${id}`}>
             <div>
-                {!showDefaultImage && image ? (
-                <img onError={handleError} src={image} className="card-image" />
-                ) : (
-                <Image width={250} height={200} src={'/assets/default-picture.png'} />
-                )}
+                <Image width={250} height={250} loader={myLoader} src={image.replace(/.+\i\m\g/, 'https://fakestoreapi.herokuapp.com/img')} />
                 <h4 className="mt-1 mb-2 card-title">{title}</h4>
                 <div className="d-flex justify-content-between">
                 <span className="card-label">Category: </span>
